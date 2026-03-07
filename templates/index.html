@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Code Snapshot</title>
+
+    <link rel="stylesheet" href="/static/style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Code Snapshot</h1>
+
+      <div id="editor"></div>
+
+      <button id="generateBtn">Generate Snapshot</button>
+
+      <div class="preview-container">
+        <div class="mac-bar">
+          <span class="red"></span>
+          <span class="yellow"></span>
+          <span class="green"></span>
+        </div>
+
+        <img id="previewImage" />
+      </div>
+
+      <div class="actions">
+        <a id="downloadBtn" download="code-snapshot.png">Download</a>
+      </div>
+    </div>
+
+    <script>
+      let editor;
+
+      require.config({
+        paths: {
+          vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs",
+        },
+      });
+
+      require(["vs/editor/editor.main"], function () {
+        editor = monaco.editor.create(document.getElementById("editor"), {
+          value: `// paste your code here`,
+          language: "cpp",
+          theme: "vs-dark",
+          fontSize: 16,
+          minimap: { enabled: false },
+        });
+      });
+
+      document.getElementById("generateBtn").onclick = async () => {
+        const code = editor.getValue();
+
+        const formData = new FormData();
+        formData.append("code", code);
+
+        const response = await fetch("/generate", {
+          method: "POST",
+          body: formData,
+        });
+
+        const blob = await response.blob();
+
+        const url = URL.createObjectURL(blob);
+
+        document.getElementById("previewImage").src = url;
+        document.getElementById("downloadBtn").href = url;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+pillow
+pygments
+jinja2
+python-multipart
