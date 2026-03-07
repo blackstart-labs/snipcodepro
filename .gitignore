@@ -3,3 +3,6 @@ env
 venv
 .env
 uvicorn.log
+__pycache__
+*.png
+outputs
