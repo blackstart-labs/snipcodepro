@@ -235,4 +235,13 @@
       background-color 0.3s ease,
       color 0.3s ease;
   }
+
+  button,
+  a {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
 }

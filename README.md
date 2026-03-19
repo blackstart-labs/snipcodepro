@@ -1,8 +1,10 @@
-# Code Snapshot 📷
+# SnipCode Pro 📷
 
-Code Snapshot is a premium, beautifully-designed developer tool that instantly converts your code snippets into stunning, high-resolution PNG images.
+**Live Demo:** [https://snipcodepro.vercel.app](https://snipcodepro.vercel.app)
 
-Built with a tactile, skeuomorphic design system, it features multi-theme support, smart file name detection, and a fluid drag-and-drop experience. Instead of basic flat design, Code Snapshot provides real depth, inset shadows, and a macOS-inspired window aesthetic.
+SnipCode Pro is a premium, beautifully-designed developer tool that instantly converts your code snippets into stunning, high-resolution PNG images.
+
+Built with a tactile, skeuomorphic design system, it features multi-theme support, smart file name detection, and a fluid drag-and-drop experience. Instead of basic flat design, SnipCode Pro provides real depth, inset shadows, and a macOS-inspired window aesthetic.
 
 ---
 
@@ -44,7 +46,7 @@ Built with a tactile, skeuomorphic design system, it features multi-theme suppor
 
 ## 🐳 Docker Deployment
 
-Code Snapshot includes a multi-stage Dockerfile and Docker Compose setup for optimized, standalone production deployment.
+SnipCode Pro includes a multi-stage Dockerfile and Docker Compose setup for optimized, standalone production deployment.
 
 \`\`\`bash
 

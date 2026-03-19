@@ -19,7 +19,7 @@ export function TitleBar({ projectName, setProjectName }: TitleBarProps) {
 
         <div className="flex items-center gap-2 font-semibold text-sm tracking-wide text-[var(--text-secondary)] pointer-events-none select-none">
           <Camera size={16} className="opacity-80" />
-          Code Snapshot
+          SnipCode Pro
         </div>
       </div>
 

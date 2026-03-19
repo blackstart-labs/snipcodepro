@@ -66,19 +66,24 @@ export function EditorPanel({
     setTabSize(newSize);
     if (editorRef.current) {
       editorRef.current.getModel()?.updateOptions({ tabSize: newSize });
-      
+
       // Visually re-indent existing spaces for immediate feedback
-      const reindented = code.split('\n').map(line => {
-        const match = line.match(/^(\s+)/);
-        if (match) {
-          const spaces = match[1].length;
-          // Scale spaces proportionally
-          if (tabSize === 2 && newSize === 4) return ' '.repeat(spaces * 2) + line.trimStart();
-          if (tabSize === 4 && newSize === 2) return ' '.repeat(Math.ceil(spaces / 2)) + line.trimStart();
-        }
-        return line;
-      }).join('\n');
-      
+      const reindented = code
+        .split('\n')
+        .map((line) => {
+          const match = line.match(/^(\s+)/);
+          if (match) {
+            const spaces = match[1].length;
+            // Scale spaces proportionally
+            if (tabSize === 2 && newSize === 4)
+              return ' '.repeat(spaces * 2) + line.trimStart();
+            if (tabSize === 4 && newSize === 2)
+              return ' '.repeat(Math.ceil(spaces / 2)) + line.trimStart();
+          }
+          return line;
+        })
+        .join('\n');
+
       if (reindented !== code) {
         setCode(reindented);
       }
