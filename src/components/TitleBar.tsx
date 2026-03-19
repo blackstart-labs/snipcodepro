@@ -1,4 +1,5 @@
 import { ThemeSwitcher } from './ThemeSwitcher';
+import { FontSwitcher } from './FontSwitcher';
 import { Camera } from 'lucide-react';
 
 interface TitleBarProps {
@@ -34,8 +35,9 @@ export function TitleBar({ projectName, setProjectName }: TitleBarProps) {
         />
       </div>
 
-      {/* Right: Theme Switcher */}
-      <div className="flex items-center gap-4">
+      {/* Right: Theme Switcher & Font Switcher */}
+      <div className="flex items-center gap-2">
+        <FontSwitcher />
         <ThemeSwitcher />
       </div>
     </header>

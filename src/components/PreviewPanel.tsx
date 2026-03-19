@@ -5,6 +5,8 @@ import { clsx } from 'clsx';
 import { Download, Sparkles } from 'lucide-react';
 import { codeToHtml } from 'shiki';
 import { useTheme } from '../hooks/useTheme';
+import { useCodeFont } from '../hooks/useCodeFont';
+import { CODE_FONTS } from '../fonts';
 import { themes } from '../themes';
 
 interface PreviewPanelProps {
@@ -24,6 +26,10 @@ export function PreviewPanel({
 }: PreviewPanelProps) {
   const [htmlContent, setHtmlContent] = useState<string>('');
   const { theme } = useTheme();
+  const { codeFont } = useCodeFont();
+  const activeFontVar =
+    CODE_FONTS.find((f) => f.id === codeFont)?.variable ||
+    'var(--font-jetbrains)';
   const previewRef = useRef<HTMLDivElement>(null);
 
   // We add a tiny artificial loading state to trigger the shimmer
@@ -135,7 +141,8 @@ export function PreviewPanel({
 
               {/* Shiki Rendered Code */}
               <div
-                className="p-6 text-[15px] leading-relaxed font-mono overflow-auto [&>pre]:!bg-transparent [&>pre]:!m-0 max-w-[800px]"
+                className="p-6 text-[15px] leading-relaxed overflow-auto [&>pre]:!bg-transparent [&>pre]:!m-0 max-w-[800px]"
+                style={{ fontFamily: activeFontVar }}
                 dangerouslySetInnerHTML={{ __html: htmlContent }}
               />
             </div>

@@ -5,6 +5,8 @@ import Editor from '@monaco-editor/react';
 import { clsx } from 'clsx';
 import { ChevronDown, UploadCloud, Copy, Wand2, Hash } from 'lucide-react';
 import { useTheme } from '../hooks/useTheme';
+import { useCodeFont } from '../hooks/useCodeFont';
+import { CODE_FONTS } from '../fonts';
 
 export const LANGUAGES = [
   { id: 'typescript', label: 'TypeScript', ext: 'ts' },
@@ -42,6 +44,10 @@ export function EditorPanel({
   const [formatStatus, setFormatStatus] = useState<string>('');
   const editorRef = useRef<any>(null);
   const { theme } = useTheme();
+  const { codeFont } = useCodeFont();
+  const activeFontVar =
+    CODE_FONTS.find((f) => f.id === codeFont)?.variable ||
+    'var(--font-jetbrains)';
 
   const handleEditorMount = (editor: any) => {
     editorRef.current = editor;
@@ -256,9 +262,9 @@ export function EditorPanel({
               }}
               options={{
                 minimap: { enabled: false },
+                fontFamily: activeFontVar,
                 fontSize: 14,
                 tabSize: tabSize,
-                fontFamily: '"JetBrains Mono", "Fira Code", monospace',
                 fontLigatures: true,
                 scrollBeyondLastLine: false,
                 padding: { top: 16, bottom: 16 },
