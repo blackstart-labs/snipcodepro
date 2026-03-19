@@ -236,7 +236,8 @@
       color 0.3s ease;
   }
 
-  button, a {
+  button,
+  a {
     cursor: pointer;
   }
 
