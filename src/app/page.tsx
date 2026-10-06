@@ -30,7 +30,7 @@ export default function Home() {
     <>
       <TitleBar projectName={projectName} setProjectName={setProjectName} />
 
-      <main className="flex-1 flex flex-col lg:flex-row gap-6 p-4 lg:p-6 max-w-[1600px] mx-auto w-full items-stretch lg:items-stretch">
+      <main className="flex-1 flex flex-col lg:flex-row gap-6 p-4 lg:p-6 max-w-[1600px] mx-auto w-full items-stretch">
         {/* Left Side: Editor */}
         <div className="flex-1 w-full min-w-0 flex flex-col">
           <EditorPanel

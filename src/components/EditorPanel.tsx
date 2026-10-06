@@ -62,7 +62,7 @@ export function EditorPanel({
         setTimeout(() => setFormatStatus(''), 2000);
       });
     } else {
-      setFormatStatus('Not Supported for ' + language.toUpperCase());
+      setFormatStatus('Not supported for ' + language.toUpperCase());
       setTimeout(() => setFormatStatus(''), 3000);
     }
   };
@@ -277,7 +277,7 @@ export function EditorPanel({
                 minimap: { enabled: false },
                 fontFamily: activeFontFamily,
                 fontSize: 14,
-                tabSize: tabSize,
+                tabSize,
                 fontLigatures: true,
                 scrollBeyondLastLine: false,
                 padding: { top: 16, bottom: 16 },
