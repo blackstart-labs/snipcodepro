@@ -1,0 +1,18 @@
+frontend:
+  - 'src/**/*'
+  - 'public/**/*'
+
+documentation:
+  - 'README.md'
+  - 'LICENSE'
+
+ci:
+  - '.github/**/*'
+
+docker:
+  - 'Dockerfile'
+  - 'docker-compose.yml'
+
+dependencies:
+  - 'package.json'
+  - 'pnpm-lock.yaml'
