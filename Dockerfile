@@ -1,4 +1,4 @@
-FROM node:22-alpine AS base
+FROM node:24-alpine AS base
 
 # Install dependencies only when needed
 FROM base AS deps
@@ -20,7 +20,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN npm install -g pnpm && pnpm build
 
-# Production image, copy all the files and run next
+# Production image, copy all the files and run Next.js
 FROM base AS runner
 WORKDIR /app
 
@@ -32,7 +32,7 @@ RUN adduser --system --uid 1001 nextjs
 
 COPY --from=builder /app/public ./public
 
-# Set the correct permission for prerender cache
+# Set the correct permissions for the prerender cache
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 

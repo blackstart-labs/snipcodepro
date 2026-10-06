@@ -103,7 +103,7 @@ export function PreviewPanel({
 
         {/* Empty State */}
         {!code.trim() && (
-          <div className="flex flex-col items-center gap-4 text-[var(--text-muted)] opcacity-60 z-10 transition-opacity">
+          <div className="flex flex-col items-center gap-4 text-[var(--text-muted)] opacity-60 z-10 transition-opacity">
             <Sparkles size={48} className="opacity-30" />
             <p className="text-sm font-medium text-center">
               Type or paste code to generate a snapshot.
